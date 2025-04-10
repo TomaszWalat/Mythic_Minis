@@ -1,74 +1,37 @@
-{
-    "products":[
-        {
-            "name":"Space Marine",
-            "image":"../images/placeholderImage.png",
-            "description":"A genetically enhanced super-soldier, clad in power armor and armed with advanced weaponry.",
-            "rating":3,
-            "price":10.99
-        },
-        {
-            "name":"Corrupted Space Marine",
-            "image":"../images/placeholderImage.png",
-            "description":"Once a noble warrior of the Emperor, this corrupted Space Marine is now a twisted parody of his former self.",
-            "rating":3,
-            "price":10.99
-        },
-        {
-            "name":"Hover Tank",
-            "image":"../images/placeholderImage.png",
-            "description":"A heavily armored, anti-gravity combat vehicle designed for rapid deployment and high-mobility warfare.",
-            "rating":5,
-            "price":20.99
-        },
-        {
-            "name":"Elf Warrior",
-            "image":"../images/placeholderImage.png",
-            "description":"A fierce and agile combatant, the elf warrior moves with unmatched grace and precision.",
-            "rating":5,
-            "price":10.99
-        },
-        {
-            "name":"Elf Sorceress",
-            "image":"../images/placeholderImage.png",
-            "description":"raceful and enigmatic, the elf sorceress channels the raw power of arcane magic with natural ease.",
-            "rating":5,
-            "price":12.99
-        },
-        {
-            "name":"Orc Barbarian",
-            "image":"../images/placeholderImage.png",
-            "description":"A towering brute of muscle and fury, the orc barbarian charges into battle with primal rage and unmatched ferocity.",
-            "rating":4,
-            "price":10.99
-        },
-        {
-            "name":"British Rifleman",
-            "image":"../images/placeholderImage.png",
-            "description":"A WWII British rifleman was a frontline infantry soldier equipped with a Lee-Enfield bolt-action rifle, known for its reliability and rapid rate of fire.",
-            "rating":5,
-            "price":10.99
-        },
-        {
-            "name":"Sherman Tank",
-            "image":"../images/placeholderImage.png",
-            "description":"The M4 Sherman was the primary medium tank used by the United States and its Allies during World War II.",
-            "rating":4,
-            "price":15.99
-        },
-        {
-            "name":"Ruined Well",
-            "image":"../images/placeholderImage.png",
-            "description":"A ruined well.",
-            "rating":2,
-            "price":6.99
-        },
-        {
-            "name":"Stone Bridge",
-            "image":"../images/placeholderImage.png",
-            "description":"A sturdy stone bridge.",
-            "rating":4,
-            "price":12.99
-        }
-    ]
-}
+{"products":[
+    {
+        "name":"Space Marine",
+        "image":"../images/placeholderImage.png",
+        "description":"A genetically enhanced super-soldier, clad in power armor and armed with advanced weaponry.",
+        "rating":5,
+        "price":10.99
+    },
+    {
+        "name":"Elf Warrior",
+        "image":"../images/placeholderImage.png",
+        "description":"A fierce and agile combatant, the elf warrior moves with unmatched grace and precision.",
+        "rating":5,
+        "price":10.99
+    },
+    {
+        "name":"British Rifleman",
+        "image":"../images/placeholderImage.png",
+        "description":"A WWII British rifleman was a frontline infantry soldier equipped with a Lee-Enfield bolt-action rifle, known for its reliability and rapid rate of fire.",
+        "rating":5,
+        "price":10.99
+    },
+    {
+        "name":"Sherman Tank",
+        "image":"../images/placeholderImage.png",
+        "description":"The M4 Sherman was the primary medium tank used by the United States and its Allies during World War II.",
+        "rating":5,
+        "price":15.99
+    },
+    {
+        "name":"Ruined Well",
+        "image":"../images/placeholderImage.png",
+        "description":"A ruined well.",
+        "rating":5,
+        "price":6.99
+    }
+]}
