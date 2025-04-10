@@ -1,5 +1,6 @@
 .search-section {
     justify-items: center;
+    width: 90%;
     margin: 100px 0px;
 }
 
@@ -12,6 +13,10 @@
     color: var(--site-text-color);
     border: solid 2px var(--site-primary-color-tint);
     height: 35px;
+}
+
+.resuls-count {
+    text-align: center;
 }
 
 .search-results {
@@ -45,8 +50,21 @@
     width: 15%;
 }
 
-.more-results-button{
+.more-results-button--visible{
     display: block;
+    width: 30%;
+    background-color: var(--site-primary-color);
+    border: none;
+    font-family: var(--site-font-family);
+    font-size: var(--text-body-size);
+    line-height: var(--text-body-line-height);
+    color: var(--site-background-color);
+    margin: 50px 0px;
+    height: 35px;
+}
+
+.more-results-button--hidden {
+    display: none;
     width: 30%;
     background-color: var(--site-primary-color);
     border: none;

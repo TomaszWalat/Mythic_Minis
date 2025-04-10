@@ -1,30 +1,90 @@
 const resultsList = document.querySelector(".search-results");
 const searchInput = document.querySelector(".search-input");
 searchInput.addEventListener("keyup", function(e) {
-    if (e.key === "Enter" && searchInput.value.length > 0) {
-        // submit search with query
-        search(searchInput.value);
-    }
+    search(searchInput.value);
 });
+const resultsCount = document.querySelector(".results-count");
+const moreResultsButton = document.querySelector(".more-results-button--hidden");
+moreResultsButton.addEventListener("click", function(e) {
+    showMoreResults();
+});
+let results = [];
+let visibleResults = 6;
+
+function clearExistingResults() {
+    // Clear existing search results
+    while (resultsList.firstChild) {
+        resultsList.firstChild.remove();
+    }
+}
+
+function clearSearch() {
+    clearExistingResults();
+    results = [];
+    updateResultsCount();
+    visibleResults = 6;
+}
+
+function updateResultsCount() {
+    resultsCount.textContent = results.length + " products found";
+}
+
+function showMoreResults() {
+    visibleResults += 3;
+    console.log("Increasing visible results to: " + visibleResults);
+    updateMoreResultsButton();
+    createResultsList(results);
+}
+
+function updateMoreResultsButton() {
+    if (results.length > visibleResults) {
+        // show more results button
+        moreResultsButton.classList.remove("more-results-button--hidden");
+        moreResultsButton.classList.add("more-results-button--visible");
+    } else {
+        // hide more results button
+        moreResultsButton.classList.remove("more-results-button--visible");
+        moreResultsButton.classList.add("more-results-button--hidden");
+    }
+}
 
 function search(query) {
     console.log("Searching for query: " + query);
-
-    fetch("../../data/products.json")
-    .then(response => response.json())
-    .then(data => {
-        console.log("Data loaded from file");
-        const products = data.products;
-        // Clear existing search results
-        while (resultsList.firstChild) {
-            resultsList.firstChild.remove();
-        }
-        for (let i = 0; i < products.length; i++) {
-            if (products[i].name.toLowerCase().includes(query.toLowerCase())) {
-                createSearchResult(products[i]);
+    clearSearch();
+    if (query.length > 0) {
+        fetch("../../data/products.json")
+        .then(response => response.json())
+        .then(data => {
+            console.log("Data loaded from file");
+            const products = data.products;
+            // Clear existing search results
+            while (resultsList.firstChild) {
+                resultsList.firstChild.remove();
             }
-        }
-    });
+            // Get search results
+            results = [];
+            for (let i = 0; i < products.length; i++) {
+                if (products[i].name.toLowerCase().includes(query.toLowerCase())) {
+                    results.push(products[i]);
+                }
+            }
+
+            if (results.length < visibleResults) {
+                visibleResults = results.length;
+            }
+
+            updateMoreResultsButton();
+            createResultsList(results);
+        });
+    }
+}
+
+function createResultsList(results) {
+    clearExistingResults();
+    for (let i = 0; i < visibleResults; i++) {
+        createSearchResult(results[i]);
+    }
+    updateResultsCount();
 }
 
 function createSearchResult(product) {
@@ -54,6 +114,19 @@ function createSearchResult(product) {
     resultDescription.appendChild(resultDescriptionText);
     resultTextContent.appendChild(resultDescription);
     // Create rating and add it to the text container
+    const resultRating = document.createElement("div");
+    resultRating.classList.add("result__rating");
+    resultTextContent.appendChild(resultRating);
+    for (let i = 0; i < 5; i++) {
+        const star = document.createElement("img");
+        if (i < product.rating) {
+            star.src = "../../images/starFull.png";
+        } else {
+            star.src = "../../images/starEmpty.png";
+        }
+        star.classList.add("star");
+        resultRating.appendChild(star);
+    }
     // Create price and add it to the text container
     const resultPrice = document.createElement("p");
     resultPrice.classList.add("text-body");
